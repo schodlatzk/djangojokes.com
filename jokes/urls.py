@@ -1,9 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+
+from .views import JokeListView
 
 app_name = 'jokes'
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('jokes/', include('jokes.urls')),
-    path('', include('pages.urls')),
+    path('', JokeListView.as_view(), name='list'),
 ]
